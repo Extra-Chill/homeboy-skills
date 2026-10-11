@@ -52,7 +52,6 @@ homeboy docs commands/commands-index     # full command reference
 homeboy docs schemas/component-schema    # component config schema
 homeboy docs schemas/project-schema      # project config schema
 homeboy docs schemas/server-schema       # server config schema
-homeboy docs schemas/fleet-schema        # fleet config schema
 homeboy docs schemas/extension-manifest-schema  # extension schema
 homeboy docs architecture/output-system  # JSON output contract
 homeboy docs architecture/hooks          # lifecycle hook system
@@ -76,7 +75,7 @@ Every command returns a stable JSON envelope:
 
 Error codes are stable and namespaced (`config.*`, `ssh.*`, `deploy.*`, `git.*`, `internal.*`). The `data` shape is command-specific — read `homeboy docs commands/<command>` for the exact structure.
 
-Exceptions: `homeboy docs` outputs raw markdown. `homeboy ssh` and `homeboy logs --follow` use interactive passthrough.
+Exceptions: `homeboy docs` outputs raw markdown. `homeboy ssh` uses interactive passthrough.
 
 ## Data Model
 
@@ -84,7 +83,6 @@ Exceptions: `homeboy docs` outputs raw markdown. `homeboy ssh` and `homeboy logs
 Component  →  versioned, deployable unit (plugin, theme, CLI, package)
 Project    →  deployment target (site on a server, links to components)
 Server     →  SSH connection config
-Fleet      →  named group of projects for batch operations
 Extension  →  installable plugin (adds CLI commands, platform behaviors, hooks, docs)
 ```
 
